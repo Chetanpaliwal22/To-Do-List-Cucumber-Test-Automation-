@@ -6,11 +6,11 @@ import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = { "C:\\Users\\cheta\\OneDrive\\Desktop\\Cucumber\\Cucumber-Test\\" }, plugin = {
+@CucumberOptions(features = { "AddTask.feature" }, plugin = {
 		"html:target/site/cucumber-pretty",
 		"json:target/cucumber.json" }, glue = { "helpers", "stepDefinitions", "steps" },
 		// dryRun = true,
 		monochrome = true)
-public class RunAddTask {
+public class TestRunnerAddTask {
 
 }
