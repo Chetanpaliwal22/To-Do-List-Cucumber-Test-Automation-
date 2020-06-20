@@ -17,12 +17,14 @@ import cucumber.api.java.en.Then;
 public class ToDoListSteps {
 
 	WebDriver driver = null;
+	String taskName = "Task  Added from Cucumber Script " + currentDateTime();
 
-	@Given("^I am on the To-Do-List Applicaiton Page$")
-	public void i_am_on_the_To_Do_List_Applicaiton_Page() throws Throwable {
+	@Given("^I am on the To-Do-List Application Page$")
+	public void i_am_on_the_To_Do_List_Application_Page() throws Throwable {
 		String url = "https://chetanpaliwal22.github.io/To-Do-List-App/";
 		System.setProperty("webdriver.chrome.driver", "C:\\chromedriver_win32\\chromedriver.exe");
 		driver = new ChromeDriver();
+		driver.manage().window().maximize();
 		driver.get(url);
 	}
 
@@ -37,7 +39,7 @@ public class ToDoListSteps {
 	public void i_enter_the_task_name() throws Throwable {
 		pause(2000);
 		WebElement nameField = driver.findElement(By.xpath(".//input[@id='formTask']"));
-		nameField.sendKeys("Task  Added from Cucumber Script " + currentDateTime());
+		nameField.sendKeys(taskName);
 	}
 
 	@Given("^I select the Check Box$")
@@ -57,8 +59,8 @@ public class ToDoListSteps {
 	@Then("^New task is added to my To-Do List$")
 	public void new_task_is_added_to_my_To_Do_List() throws Throwable {
 		pause(3000);
-		boolean taskFlag = driver.getPageSource().contains("Text to check");
-		assertEquals(true, true);
+		boolean taskFlag = driver.getPageSource().contains(taskName);
+		assertEquals(true, taskFlag);
 	}
 
 	@Then("^I close the browser$")

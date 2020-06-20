@@ -1,7 +1,7 @@
 Feature: Registration 
 
 Scenario: Test Add To-Do 
-	Given I am on the To-Do-List Applicaiton Page  
+	Given I am on the To-Do-List Application Page  
 	 And I click on the Add Task button 
 	 And I enter the task name
 	 And I select the Check Box
